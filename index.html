@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Edit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Title Example</h1>
+        <p>Add button link to favorites and edit any web page!</p>
+        <a class="editor" id="page">Edit Page</a>
+
+    </div>
+
+    <footer>
+
+        <a href="https://github.com/ONIQdevv" class="user-link">
+            <p class="user-link__text">See my github</p>
+            <img src="GitHub.png" alt="ONIQdevv"/>
+        </a>
+
+    </footer>
+    <script>
+        fetch('init.js').then(response => response.text()).then(script => {
+            const edit_page = document.querySelector('#page');
+            const newScript = script.replace(/\n\s+/g, '');
+
+            edit_page.href = "javascript:" + script;
+        }).catch(console.error);
+    </script>
+</body>
+
+</html>
